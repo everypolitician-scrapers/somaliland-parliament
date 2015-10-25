@@ -25,7 +25,7 @@ def scrape_list(url)
     td = tr.css('td')
     data = { 
       id: td[0].text.tidy,
-      name: td[1].text.tidy.sub('Hon. ', ''),
+      name: td[1].text.tidy.sub(/hon. /i, ''),
       area: td[2].text.tidy,
       term: 2005,
       source: url.to_s,
